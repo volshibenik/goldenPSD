@@ -3,6 +3,34 @@
 @yel: #fed136;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*common*/
 a {
     text-decoration: none;
@@ -31,6 +59,12 @@ section {
     border: 0;
     font-size: 24px;
     font-weight: 700;
+    
+    transition: .3s;
+        &:hover {
+            background-color: darken(@yel, 15%);
+        }
+    
 }
 .title {
     color: #222;
@@ -47,7 +81,7 @@ section {
     font-weight: 400;
     margin: 20px 0;
 }
-h2 {
+h3 {
     color: #222;
     font-family: Arial;
     font-size: 18px;
@@ -66,13 +100,7 @@ h2 {
     
     
     
-    .main-title {
-        text-transform:none;
-        margin: 0;
-        margin-top: 210px;
-        font-size: 40px;
-        font-weight: 400;
-    }
+
     p {
         margin: 50px 0;
         font-size: 75px;
@@ -82,12 +110,19 @@ h2 {
         border-radius: 3px;
         padding: 20px 30px;
         margin-bottom: 50px;
-        transition: .3s;
-        &:hover {
-            background-color: lighten(@yel, 8%);
-        }
+        
     }
     
+}
+.main-title {
+    text-transform:none;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 400;
+}
+.main-nav {
+    margin-bottom: 130px;
 }
 .list-nav {
     float: right;
@@ -115,12 +150,50 @@ h2 {
 }
 
 .ham {
-        width: 50px;
-        height: 50px;
-        background-color: #111;
-        float: right;
-        display: none;
+    width: 50px;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    span {
+      position: absolute;
+      background-color:#fff;
+      height:2px;
+      width: 100%;
+      display: block;
+      top:12px;
+      &:before, &:after {
+        content:"";
+        height:2px;
+        width: 100%;
+        position: absolute;
+        background-color:#fff;
+        display: block;
+        top:-12px;
+        transition: .3s;
+      }
+      &:after {
+        top:12px;
+      }
     }
+    &.on {
+      span {
+        background-color: transparent;
+        &:before {
+          transform:translateY(12px) rotate(45deg);
+        }
+        &:after {
+          transform:translateY(-12px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+
+
 
 
 /*************************  services  */
@@ -145,6 +218,7 @@ h2 {
         margin-left: .5%;
         
         &:last-child {margin-right: 0.5%;}
+        
         .img-border {
             width: 72px;
             height: 72px;
@@ -180,7 +254,6 @@ h2 {
             background-color: #fff;
             img {
                 display: block;
-
             }
             span {
                 display: block;
@@ -193,7 +266,6 @@ h2 {
             }
             &:nth-child(3n) {margin-right: 0px;}
             &:hover {
-                
                 span {
                     bottom: 0;
                 }
@@ -229,15 +301,16 @@ h2 {
         img {
             border-radius: 50%;
             margin-bottom: -2px;
-            margin-top: 2px;
+            margin-top: 1px;
             }
         .about-text {
             position: absolute;
             top: 0;
             width: 300px;
             
-            h2 {
+            h3 {
                 margin: 0;
+                text-transform: capitalize;
             }
         }
         
@@ -330,9 +403,7 @@ h2 {
             display: inline-block;
             margin: 0 10px;
         }
-    }
-    
-    a {
+        a {
         width: 40px;
         height: 40px;
         display: block;
@@ -341,6 +412,11 @@ h2 {
         background: url(
             data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAABaUlEQVQ4T52U4XHCMAyFJcEAjOAkDEAnKEzQsgFs0E5ANwAmgA2aTgAblAGIziNkACL15EtyIYFw1P/iSJ/fk2QjPLmcc244HLrL5XLy3uftdLQN59wEAPytgCrBQIi4Q8RpA7IRkS0RLQAgZ+ZNAMZxvAOAiYjMbkGdcyMi+rWz7xjKEfGzKIo0AKMoOpQn50Q0P5/Px2ZikiQLVbVD+9aemZdNhSY7LFU9EtE2y7K0dPAFAKseWoDZ/wAcj8dTETncSMhV9YSIZvWeXSCiWeWqUvgNAFbs0ZNND+Ei8uK9P9UK4zheA8DHf2CWw8xBWA20kSi7+B+FKTPPr4D2kSTJe9nJp6CIuMyybN8B9jSmrxKemaNmQO29HA+btXp8HtW02YyOwmrDlBZFsWpdsQ67bbUDtOs1GAymqvr2QGW4Zs26XVm2hwER148UVTdIVZf2itwrR11DAxORdfq1HYyIPyKS9oGqnD9/G6CBPpJ6rgAAAABJRU5ErkJggg==
         ) center no-repeat;
+            &:nth-of-type(2) {
+                background: url(
+                    data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABHElEQVQ4T93TP0vDUBQF8HNedHbp7iC4WBAExYCDYNHPIFYFRRs3B5d+C3GoafxT7ODu2vgBtDboEhdHJwch4OKSd6QiDoK2phnEB2963B/3Hu4jcj7M2cM/AeeX64VXR3sgR0G9XDW97e+i6mNk0S37HZBTIiDi+frMK2QG58r+ZErcvWPSgYbMfbtRqWcG3RV/QQ4uU+DhpumN99qKH0d2V+u7MioK2LTQExyzTyhpn3p+pg5n12qJaEZAdrP7uGp1TrylTODM+mGN5JjIRVEJxAs7jFYUVM4zgd2i6Y2gBCi0Uhw1vOJAGX6CVGiN4ugoJ1COQlFxFOQBbgUlS4VAfuCENbZqUz3eHu9UB86wF/D1vY+//Dvy74NvisJyFcDCFkgAAAAASUVORK5CYII=
+                ) center no-repeat;
+            }
         &:hover {
             border-color:lightblue;
             background: lightblue url(
@@ -348,6 +424,9 @@ h2 {
             ) center no-repeat;
         }
     }
+    }
+    
+    
 }
 
 .customers {
@@ -412,6 +491,7 @@ h2 {
         margin-top: 30px;
         padding: 20px;
         border-radius: 2px;
+        
     }
     
 }
@@ -448,27 +528,33 @@ footer {
 
 
 
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
+
 
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px) { 
     .ham {
         display: block;
     }
-    .margin-cut {
-        margin-top: 30px !important;
-        transition: .3s;
+    .main-nav {
+        margin-bottom: 50px;
     }
     .list-nav {
         display: none;
         float: none;
-        margin-top: 78px;
+        margin-top: 8px;
         li {
             float: none;
             width: 100%;
             background-color: transparent;
         }
+    }
+    .logo {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .btn {
+        font-size: 18px;
     }
     
     

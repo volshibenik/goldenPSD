@@ -11,16 +11,18 @@
 </head>
 <body>
    <header class="header">
-       <div class="container cf">
-           <a href="#" class="logo"></a>
-           <div class="ham"></div>
-           <ul class="list-nav">
-               <li><a href="#">home</a></li>
-               <li><a href="#">services</a></li>
-               <li><a href="#">portfolio</a></li>
-               <li><a href="#">about</a></li>
-               <li><a href="#">contacts</a></li>
-           </ul>
+       <div class="container">
+           <nav class="main-nav cf">
+               <a href="#" class="logo"></a>
+               <div class="ham"><span></span></div>
+               <ul class="list-nav">
+                   <li><a href="#">home</a></li>
+                   <li><a href="#">services</a></li>
+                   <li><a href="#">portfolio</a></li>
+                   <li><a href="#">about</a></li>
+                   <li><a href="#">contacts</a></li>
+               </ul>
+           </nav>
            <h1 class="main-title">Welcome To Our Studio!</h1>
            <p>It’s nice to Meet you</p>
            <button class="btn">Tell Me More</button>
@@ -63,42 +65,42 @@
                <li>
                      <img src="img/por-1.jpg" alt="">
                       <span class="caption">
-                       <h2>Ebony & Ivory</h2>
+                       <h3>Ebony &amp; Ivory</h3>
                        <p>Branding</p>
                        </span>
                 </li>
                <li>
                      <img src="img/por-2.jpg" alt="">
                       <span class="caption">
-                       <h2>Smart Stationary</h2>
+                       <h3>Smart Stationary</h3>
                            <p>Print Design</p>
                    </span>
                    </li>
                <li>
                      <img src="img/por-3.jpg" alt="">
                       <span class="caption">
-                           <h2>Clever Poster</h2>
+                           <h3>Clever Poster</h3>
                        <p>Print Design</p>
                    </span>
                    </li>
                <li>
                          <img src="img/por-4.jpg" alt="">
                           <span class="caption">
-                       <h2>Vinyl Record</h2>
+                       <h3>Vinyl Record</h3>
                        <p>Product Mock-Up</p>
                    </span>
                    </li>
                <li>    
                      <img src="img/por-5.jpg" alt="">
                       <span class="caption">
-                       <h2>Treehouse Template</h2>
+                       <h3>Treehouse Template</h3>
                        <p>Branding</p>
                        </span>
                        </li>
                <li>
                      <img src="img/por-6.jpg" alt="">
                       <span class="caption">
-                       <h2>Burned Logo</h2>
+                       <h3>Burned Logo</h3>
                        <p>Product Mock-Up</p>
                    </span>
                    </li>
@@ -114,7 +116,7 @@
                        <div class="about-image">
                            <img src="img/about-1.jpg" alt="about-1">
                            <div class="about-text">
-                               <h2>July 2010<br>Our Humble Beginnings</h2>
+                               <h3>July 2010<br>Our Humble Beginnings</h3>
                                <p>Proin iaculis purus consequat sem cure 
                            digni ssim. Donec porttitora entum suscipit 
                            aenean rhoncus posuere odio in tincidunt. Proin 
@@ -127,7 +129,7 @@
                        <div class="about-image">
                            <img src="img/about-3.jpg" alt="about-2">
                            <div class="about-text">
-                               <h2>January 2011<br>Facing Startup Battles</h2>
+                               <h3>January 2011<br>Facing Startup Battles</h3>
                                <p>Proin iaculis purus consequat sem cure 
                            digni ssim. Donec porttitora entum suscipit 
                            aenean rhoncus posuere odio in tincidunt. Proin 
@@ -141,7 +143,7 @@
                        <div class="about-image">
                            <img src="img/about-2.jpg" alt="about-3">
                            <div class="about-text">
-                               <h2>December 2012<br>Enter The Dark Days</h2>
+                               <h3>December 2012<br>Enter The Dark Days</h3>
                                <p>Proin iaculis purus consequat sem cure 
                            digni ssim. Donec porttitora entum suscipit 
                            aenean rhoncus posuere odio in tincidunt. Proin 
@@ -153,7 +155,7 @@
                        <div class="about-image">
                            <img src="img/about-4.jpg" alt="about-4">
                            <div class="about-text">
-                               <h2>february 2014<br>Our Triumph</h2>
+                               <h3>february 2014<br>Our Triumph</h3>
                                <p>Proin iaculis purus consequat sem cure 
                            digni ssim. Donec porttitora entum suscipit 
                            aenean rhoncus posuere odio in tincidunt. Proin 
@@ -164,9 +166,9 @@
                    </div>
                    <div class="about-item">
                        <div class="about-image">
-                           <img src="img/about-5.jpg" alt="about-5">
+                           <img src="" alt="about-5">
                            <div class="about-text">
-                               <h2>our <br> story <br> continues<br>...</h2>
+                               <h3>our <br> story <br> continues<br>...</h3>
                                <p></p>
                            </div>
                        </div>
@@ -252,10 +254,20 @@
         </div>
     </footer>
     <script>
-        $('.ham').click(function(){
-            $('.list-nav').slideToggle();
-            $('.as').toggleClass('margin-cut');
-        });
+        
+        
+        
+    $('.ham').click(function(){
+        $(this).toggleClass('on');
+        $('.list-nav').slideToggle(450);
+    });
+    $(window).resize(function () {
+        $('.list-nav').attr('style', '');
+        $('.ham').removeClass('on');
+    })
+        
+        
+        
     </script>
     
     
